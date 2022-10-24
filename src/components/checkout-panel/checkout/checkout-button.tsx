@@ -1,25 +1,39 @@
 import React from 'react';
 import { useAppSelector } from '../../../hooks';
-import { selectCheckoutTotal } from '../../../slices/checkout-slice';
+import { selectChosenCard, selectChosenOffer } from '../../../slices/checkout-slice';
 import { Button } from '../../common';
 
 interface CheckoutObject {
     checkout_value_id: string;
-    cost_in_cents: string;
+    cost_in_cents: number;
     name: string;
     value_in_cents: number;
 }
 
 const CheckoutButton: React.FC = (): React.ReactElement => {
-    const totalCheckout = useAppSelector(selectCheckoutTotal);
+    const chosenCard = useAppSelector(selectChosenCard);
+    const chosenOffer = useAppSelector(selectChosenOffer);
+    const chosenObject: CheckoutObject = {
+        checkout_value_id: chosenCard.checkout_value_id,
+        cost_in_cents: chosenCard.cost_in_cents,
+        name: chosenOffer.name,
+        value_in_cents: chosenCard.value_in_cents,
+    };
     const buttonText = 'Prizeout Gift Card';
-    const buttonHandler = () => {
-        if (totalCheckout > 0) {
-            // make request with the checkout object interface here.
-            // BUT HOW?! :P
-            // Do I create a Node/express server? Json-server?
-            // Probably some sort of async await post method.
+    const buttonHandler = async () => {
+        const response = await setTimeout(() => mockRequest(chosenObject), 1000);
+        return response;
+    };
+
+    const mockRequest = (body: CheckoutObject) => {
+        let httpResponse;
+        if (body.name) {
+            httpResponse = 200;
+            const data = JSON.stringify(body);
+            return alert(`Response: ${httpResponse}, ${data}`);
         }
+        httpResponse = 404;
+        return alert(httpResponse);
     };
 
     return (
