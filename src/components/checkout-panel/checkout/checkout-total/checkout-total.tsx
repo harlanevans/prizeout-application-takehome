@@ -1,5 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { PrizeoutOffer, PrizeoutOfferValueOptions } from '../../../../slices/offers-slice';
+
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../../../../store';
+import { setCheckoutTotal } from '../../../../slices/checkout-slice';
 
 import './checkout-total.less';
 
@@ -13,6 +17,8 @@ type Currency = {
 };
 
 const CheckoutTotalView: React.FC<CheckoutTotalViewProps> = ({ offer, card }): React.ReactElement => {
+    const dispatch = useDispatch<AppDispatch>();
+
     const USD: Currency = {
         currency: 'USD',
         style: 'currency',
@@ -21,8 +27,15 @@ const CheckoutTotalView: React.FC<CheckoutTotalViewProps> = ({ offer, card }): R
     const dollarAmountString: string = dollarAmountNumber.toLocaleString('en-US', USD);
     const prizeoutBonus: number = Math.floor(card.display_bonus);
     const prizeoutBonusTotal: number = (prizeoutBonus / 100) * dollarAmountNumber || 0;
-    const total: string = (dollarAmountNumber + prizeoutBonusTotal).toLocaleString('en-US', USD);
+    const totalString: string = (dollarAmountNumber + prizeoutBonusTotal).toLocaleString('en-US', USD);
+    const total: number = dollarAmountNumber + prizeoutBonusTotal;
     const prizeOutBonusUI: string = prizeoutBonusTotal.toLocaleString('en-US', USD);
+
+    useEffect(() => {
+        if (total > 0) {
+            dispatch(setCheckoutTotal(total));
+        }
+    }, [total]);
 
     return (
         <>
@@ -41,7 +54,7 @@ const CheckoutTotalView: React.FC<CheckoutTotalViewProps> = ({ offer, card }): R
                     </div>
                     <div className="checkout-total__rows">
                         <div>You Get</div>
-                        <div>{total}</div>
+                        <div>{totalString}</div>
                     </div>
                 </section>
             ) : null}
