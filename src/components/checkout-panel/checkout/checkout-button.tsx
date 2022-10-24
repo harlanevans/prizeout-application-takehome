@@ -30,10 +30,10 @@ const CheckoutButton: React.FC = (): React.ReactElement => {
         if (body.name) {
             httpResponse = 200;
             const data = JSON.stringify(body);
-            return alert(`Response: ${httpResponse}, ${data}`);
+            return alert(`Response: ${httpResponse} - OK, ${data}`);
         }
-        httpResponse = 404;
-        return alert(httpResponse);
+        httpResponse = 500;
+        return alert(`Response: ${httpResponse} - INTERNAL SERVER ERROR`);
     };
 
     return (
