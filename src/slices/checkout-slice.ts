@@ -8,13 +8,11 @@ export interface CheckoutSlice {
     isCollapsedCheckoutPanelOpen: boolean;
     loading: boolean;
     view: ViewEnum;
-    checkoutTotal: number;
 }
 
 export type ViewEnum = 'checkout' | 'checkout-confirmation';
 
 export const checkoutInitialState: CheckoutSlice = {
-    checkoutTotal: 0,
     chosenCard: {
         checkout_value_id: '',
         cost_in_cents: 0,
@@ -44,9 +42,6 @@ export const checkoutSlice = createSlice({
     initialState: checkoutInitialState,
     name: 'checkout',
     reducers: {
-        setCheckoutTotal(state, action: PayloadAction<number>) {
-            state.checkoutTotal = action.payload;
-        },
         setCheckoutView(state, action: PayloadAction<ViewEnum>) {
             state.view = action.payload;
         },
@@ -65,14 +60,8 @@ export const checkoutSlice = createSlice({
     },
 });
 
-export const {
-    setCheckoutView,
-    setCheckoutTotal,
-    toggleIsCollapsedCheckoutPanelOpen,
-    toggleIsLoading,
-    setChosenCard,
-    setChosenOffer,
-} = checkoutSlice.actions;
+export const { setCheckoutView, toggleIsCollapsedCheckoutPanelOpen, toggleIsLoading, setChosenCard, setChosenOffer } =
+    checkoutSlice.actions;
 
 export const selectLoading = ({ checkout: { loading } }: RootState): boolean => loading;
 
@@ -81,8 +70,6 @@ export const selectCheckoutView = ({ checkout: { view } }: RootState): ViewEnum 
 export const selectChosenCard = ({ checkout: { chosenCard } }: RootState): PrizeoutOfferValueOptions => chosenCard;
 
 export const selectChosenOffer = ({ checkout: { chosenOffer } }: RootState): PrizeoutOffer => chosenOffer;
-
-export const selectCheckoutTotal = ({ checkout: { checkoutTotal } }: RootState): number => checkoutTotal;
 
 export const selectIsCollapsedCheckoutPanelOpen = ({
     checkout: { isCollapsedCheckoutPanelOpen },
