@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Gift Card Component Component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="gift-card"
+  >
+    <div
+      class="gift-card-image"
+    >
+      <div
+        class="gift-card-image__wrapper"
+      >
+        <img
+          alt="Gift Card"
+          class="gift-card-image__image"
+          src="https://assets.prizeout.com/widget/global/generic-giftcard.png"
+        />
+        <div
+          class="gift-card-image__clear-overlay"
+        />
+      </div>
+    </div>
+    <div
+      class="gift-card__row"
+    >
+      <span
+        class="gift-card-name"
+      >
+        Default Giftcard
+      </span>
+      <span
+        class="gift-card-value"
+      >
+        50
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;

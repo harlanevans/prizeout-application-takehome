@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Back Button Component Component matches snapshot 1`] = `
+<DocumentFragment>
+  <button
+    aria-label="Move back"
+    class="button back-button"
+    data-testid="button"
+  >
+    <i
+      class="far fa-chevron-left"
+    />
+  </button>
+</DocumentFragment>
+`;

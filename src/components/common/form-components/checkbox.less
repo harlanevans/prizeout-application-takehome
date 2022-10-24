@@ -1,0 +1,113 @@
+@import '../../../utils/styles/mixins.less';
+
+.checkbox {
+	.flexbox(@flexFlow: row nowrap; @justifyContent: flex-start; @alignItems: flex-start);
+	
+	position: relative;
+	margin: .625rem 0;
+
+	&:focus-within {
+		.checkbox__control:after {
+			border: 2px solid var(--color-primary);
+		}
+	}
+
+	&__input {
+		/* Hide real input and use fake controller to style */
+		&[type="checkbox"]:not(:checked),
+		&[type="checkbox"]:checked {
+			position: absolute;
+			opacity: 0;
+			pointer-events: none;
+		}
+
+		/* Checked styles */
+		&[type="checkbox"]:checked {
+			+ .checkbox__control {
+				/* Show the check when checked */
+				&:before {
+					opacity: 1;
+				}
+			}
+		}
+
+		/* Disabled styles */
+		&[type="checkbox"]:not(:checked),
+		&[type="checkbox"]:checked {
+			&:disabled + .checkbox__control {
+				opacity: .5;
+
+				&:after {
+					border: 1px solid rgba(2, 20, 49, 0.1);
+					cursor: not-allowed;
+				}
+			}
+		}
+
+		/* Disabled styles when not checked */
+		&[type="checkbox"]:not(:checked) {
+			&:disabled + .checkbox__control {
+				&:before {
+					opacity: 0;
+				}
+			}
+		}
+
+		/* Disabled styles when checked */
+		&[type="checkbox"]:checked {
+			&:disabled + .checkbox__control {
+				&:before {
+					opacity: 1;
+					color: var(--color-tertiary);
+				}
+			}
+		}
+	}
+	
+	/* Fake checkbox controller */
+	&__control {
+		position: relative;
+		padding-left: 1.5rem;
+		display: inline-block;
+		user-select: none;
+
+		/* Style the checkbox */
+		&:before,
+		&:after {
+			content: '';
+			position: absolute;
+			top: var(--unit);
+			left: 0;
+			width: 1rem;
+			height: 1rem;
+			z-index: 0;
+			border-radius: 1px;
+			margin-top: 0;
+			cursor: pointer;
+		}
+
+		/* Style the check, hide when not checked */
+		&:before {
+			.transition(@duration: .2s; @prop: opacity;);
+
+			opacity: 0;
+			content: '\f00c';
+			font-family: var(--font-family-fa);
+			color: var(--color-primary);
+			font-size: 0.625rem;
+			border: none;
+			left: 3px;
+			top: var(--unit);
+			
+			@media (prefers-reduced-motion: reduce) {
+				transition: none;
+			}
+		}
+
+		/* Default checkbox border color */
+		&:after {
+			border: 2px solid rgba(2, 20, 49, 0.25);
+			border-radius: var(--unit);
+		}
+	}
+}

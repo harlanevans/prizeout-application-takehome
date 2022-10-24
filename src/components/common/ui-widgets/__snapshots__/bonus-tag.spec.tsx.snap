@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Bonus Tag Component Component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="bonus-tag"
+  >
+    <div
+      class="bonus-tag__container"
+    >
+      <div>
+        <i
+          class="fak fa-prizeout-bonus-icon"
+        />
+        <small>
+          15%
+        </small>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

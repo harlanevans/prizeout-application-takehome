@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Collapsible Panel Component Component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="collapsible-panel"
+  >
+    <header
+      aria-controls="test-cp"
+      aria-expanded="false"
+      tabindex="0"
+    >
+      Collapsible Panel Title
+    </header>
+    <article
+      id="test-cp"
+    >
+      Collapsible Panel Content
+    </article>
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Footer Component Component matches snapshot 1`] = `
+<DocumentFragment>
+  <footer
+    class="footer"
+  >
+    <div
+      class="footer_copyright"
+    >
+      <p>
+        © 2020-2022, Prizeout, Inc. All rights reserved.
+      </p>
+    </div>
+    <ul
+      class="footer__links"
+    >
+      <li
+        class="footer__link"
+      >
+        <a
+          href="https://undefined/privacy/"
+          rel="noreferrer"
+          target="_blank"
+        >
+          Privacy Policy
+        </a>
+         | 
+      </li>
+      <li
+        class="footer__link"
+      >
+        <a
+          href="https://undefined/terms/"
+          rel="noreferrer"
+          target="_blank"
+        >
+          Prizeout Terms of Use
+        </a>
+         | 
+      </li>
+      <li
+        class="footer__link"
+      >
+        <a
+          href="https://undefined/privacy/index.html#infocollect"
+          rel="noreferrer"
+          target="_blank"
+        >
+          California Info We Collect
+        </a>
+         | 
+      </li>
+      <li
+        class="footer__link"
+      >
+        <a
+          href="https://privacyportal.cookiepro.com/webform/20dcda57-44d2-4622-b07c-30902b02fbd4/9211ec70-941f-4529-9e43-027527ed5e2f"
+          rel="noreferrer"
+          target="_blank"
+        >
+          Do Not Sell My Personal Information
+        </a>
+      </li>
+    </ul>
+  </footer>
+</DocumentFragment>
+`;

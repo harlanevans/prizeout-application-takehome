@@ -1,0 +1,40 @@
+/*
+	Add items to the list in the order of z-index, the last item being the highest value
+*/
+
+@list:
+	search-widget
+	overlay
+	checkout-panel
+	full-panel
+	overlay-sidebar
+	navbar
+	sidebar
+	overlay-nested
+	panel-nested
+	modal
+	header
+	preloader-error
+	overlay-full
+	modal-full
+	full-screen-overlay
+	loader;
+
+
+
+/*
+	For each item in the list, a class will be created with the name of the item in the list.
+	
+	For example, the "header" item will have a class called "z-index-header", then multiply the index by 100 to keep each layer separate and easy to understand.
+	
+	If 'header' is the 9th item in the list, then the output would be:
+	.z-index-header {
+		z-index: 900;
+	}
+*/
+
+each(@list, {
+	.z-index-@{value} {
+		z-index: @index * 100;
+	}
+});

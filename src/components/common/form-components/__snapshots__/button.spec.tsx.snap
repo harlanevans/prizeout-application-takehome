@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Button Component Component matches snapshot 1`] = `
+<DocumentFragment>
+  <button
+    aria-label="Aria label"
+    class="button button--primary button--medium button--disabled"
+    data-testid="button"
+    disabled=""
+    title="Button text"
+    type="submit"
+  >
+    <span>
+      Button text
+    </span>
+  </button>
+</DocumentFragment>
+`;

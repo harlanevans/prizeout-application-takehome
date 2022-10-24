@@ -1,0 +1,61 @@
+@import '../../../utils/styles/mixins.less';
+
+.alert {
+	@exclamation: ~'"\f06a"';
+	@check: ~'"\f058"';
+	@errorColor: var(--color-red-400);
+	@warningColor: var(--color-yellow-400);
+	@successColor: var(--color-green-400);
+	
+	.flexbox(@justifyContent: flex-start; @flexFlow: row nowrap);
+	
+	margin-bottom: var(--space-m);
+	
+	&--error {
+		.alert-style(@exclamation; @errorColor);
+	}
+	
+	&--warning {
+		.alert-style(@exclamation; @warningColor);
+	}
+	
+	&--success {
+		.alert-style(@check; @successColor);
+	}
+	
+	&__icon {
+		margin-right: var(--space);
+		
+		&::before {
+			display: inline-block;
+			vertical-align: middle;
+			font-weight: 300;
+			font-family: var(--font-family-fa);
+			font-size: 1rem;
+			font-style: normal;
+			font-variant: normal;
+			text-rendering: auto;
+			-webkit-font-smoothing: antialiased;
+		}
+	}
+	
+	&__icon,
+	&__message {
+		line-height: 1.2;
+	}
+	
+	
+	
+	/*
+		Local mixin to update icon and color based on alert type
+	*/
+	
+	.alert-style(@iconType; @iconColor;) {
+		.alert__icon {
+			&::before {
+				content: @iconType;
+				color: @iconColor;
+			}
+		}
+	}
+}

@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Tool Tip Component Component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    aria-hidden="true"
+    class="tool-tip"
+    id="fakeTip"
+    tabindex="0"
+  >
+    <header
+      aria-describedby="fakeTip-content"
+    >
+      Tool Tip Title
+    </header>
+    <article
+      id="fakeTip-content"
+    >
+      Tool Tip Content
+    </article>
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,22 @@
+@import '../../../utils/styles/mixins.less';
+
+
+.checkout {
+	padding: var(--space-inner);
+	
+	&__brand {
+		overflow: auto;
+	}
+
+	&__amounts {
+		.flexbox( @justifyContent: flex-start;);
+		width: 100%;
+	} 
+	
+	&__amountCard {
+		margin: var(--space-xs);
+		border-radius: var(--border-radius-tertiary);
+	}
+}
+
+

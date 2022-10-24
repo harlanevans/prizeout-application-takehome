@@ -1,0 +1,127 @@
+@import '../media-queries.less';
+@import '../mixins.less';
+
+.modal-body-open {
+	overflow: hidden;
+}
+
+.modal {
+	--modal-width: 440px;
+	--modal-min-height: 200px; 
+	--modal-max-height: 85vh;
+	
+	.flexbox(@flexFlow: column; @alignItems: stretch);
+	
+	position: absolute;
+	border: none;
+	border-radius: var(--border-radius-secondary);
+	background-color: var(--color-white);
+	overflow: auto;
+	outline: none;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	min-height: var(--modal-min-height);
+	max-height: var(--modal-max-height);
+	width: var(--modal-width);
+	max-width: 100%;
+	padding: 0;
+	box-shadow: 0 0 10px rgba(2,20,49,.15);
+	
+	&__inner {
+		padding: ~'calc(var(--space) * 5)';
+		overflow: auto;
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: auto auto;
+		grid-template-areas: 
+			"content"
+			"buttons";
+			
+		position: relative
+	}
+	
+	&__close {
+		.flexbox();
+		
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		left: unset;
+		width: 2rem;
+		height: 2rem;
+		margin-bottom: var(--space);
+		
+		> .button {
+			border-radius: var(--border-radius-primary);
+			width: 100%;
+			height: 100%;
+			font-size: 1rem;
+			background-color: var(--color-white);
+			
+			&:hover {
+				background-color: var(--color-grey-200);
+			}
+			
+			&:active {
+				background-color: var(--color-grey-300);
+			}
+		}
+	}
+	
+	&__content {
+		grid-area: content;
+		overflow: auto;
+	}
+	
+	&__buttons {
+		.flexbox(@flexFlow: row nowrap;);
+		
+		grid-area: buttons;
+		justify-self: end;
+		margin-top: ~'calc(var(--space) * 6)';
+		
+		.button + .button {
+			margin-left: var(--space-s);
+		}
+	}
+	
+	header {
+		width: ~'calc(100% - (var(--space-m) + 32px))';
+	}
+	
+	h2 {
+		margin-bottom: var(--space);
+	}
+	
+	p {
+		&:not(:last-child) {
+			margin-bottom: var(--space-xs);
+		}
+	}
+	
+	.form {
+		margin: var(--space-s) 0;
+		
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	
+	@media @mobile-portrait-down {
+		// Make full screen on mobile
+		--modal-width: 100vw; 
+		--modal-min-height: 100vh;
+		--modal-max-height: 100vh;
+		
+		border-radius: 0;
+		
+		&__inner {
+			position: static;
+		}
+		
+		header {
+			width: 100%;
+		}
+	}
+}

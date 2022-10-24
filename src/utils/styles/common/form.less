@@ -1,0 +1,155 @@
+@import '../mixins.less';
+
+.form {
+	@input-border-color: var(--color-grey-600);
+	@input-color: var(--color-secondary);
+	@input-padding: var(--space-xs);
+	@input-height: 2.5rem;
+	@label-color: var(--color-secondary);
+
+	width: 100%;
+	
+	&__input-wrapper {
+		.flexbox(@flexFlow: column-reverse; @justifyContent: flex-start; @alignItems: stretch);
+		
+		overflow: hidden;
+		width: 100%;
+		height: 3.75rem;
+		margin-bottom: var(--space-xs);
+
+		&--error {
+			.form__input {
+				border-color: var(--color-red-400);
+			}
+			
+			.form__input:not(:placeholder-shown) + .form__label,
+			.form__input:placeholder-shown + .form__label,
+			.form__input:focus + .form__label {
+				color: var(--color-red-400);
+			}
+		}
+	}
+
+	&__input {
+		.transition();
+
+		width: 100%;
+		border-radius: var(--border-radius-primary);
+		padding: @input-padding;
+		height: @input-height;
+		line-height: 1;
+		background-color: var(--color-white);
+		font-size: 1rem;
+		font-family: var(--font-family-primary);
+		font-weight: 400;
+		color: @input-color;
+		border: 2px solid @input-border-color;
+		-webkit-appearance: none;
+		
+		&--disabled {
+			background-color:var(--color-grey-200);
+			border-color:var(--color-grey-200);
+		}
+		
+		
+		/*
+			Floating Labels
+		*/
+		
+		// Make label look like placeholder text
+		&:placeholder-shown + .form__label {
+			cursor: text;
+			max-width: ~'calc(100% - @{input-padding})';
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			transform-origin: left bottom;
+			transform: translateY(1.8rem); // Vertically center label inside input
+			font-size: 1rem;
+		}
+		
+		// Hide placeholder by default, label is pretending to be the placeholder text
+		&::-webkit-input-placeholder,
+		&::placeholder {
+			opacity: 0;
+		}
+		
+		// Remove Chrome autofill background 
+		&:-webkit-autofill { 
+			-webkit-background-clip: text;
+			
+			// Make autofill text same as input font size
+			&::first-line {
+				font-size: 1rem;
+			}
+		}
+		
+		// Input has gained focus, move label above input	
+		&:focus + .form__label,
+		&:not(:placeholder-shown) + .form__label,
+		&:-webkit-autofill + .form__label {
+			transform: translateY(-3px);
+			cursor: default;
+			font-size: .875rem;
+			padding-left: .3rem;
+		}
+		
+		// Label is above input - focused, inactive state
+		&:focus {
+			outline: 0;
+			border-color: var(--color-primary);
+			
+			+ .form__label {
+				color: var(--color-primary);
+			}
+		}
+		
+		// Label is above input - focused, active state
+		&:not(:placeholder-shown) {
+			border-color: @input-border-color;
+			
+			.form__input-wrapper--error & {
+				border-color: var(--color-red-400);
+			}
+			
+			+ .form__label {
+				color: @label-color;
+			}
+		}
+	}
+	
+	&__label {
+		.transition();
+		
+		color: @label-color;
+		font-size: .75rem;
+		padding-left: @input-padding;
+	}
+	
+	&__select {
+		border: 2px solid @input-border-color;
+		border-radius: var(--border-radius-primary);
+		box-shadow: none;
+		outline: none;
+		width: 100%;
+		height: 40px;
+		padding: 0.5rem 1.75rem 0.5rem 0.5rem;
+		font-size: 100%;
+		appearance: none; // Hide default down arrow
+		cursor: pointer;
+		background-color: var(--color-white);
+		
+		+ label {
+			transform: translateY(-3px);
+			cursor: default;
+			font-size: .875rem;
+			padding-left: .3rem;
+			color: @label-color;
+		}
+	}
+	
+	&__button-wrapper {
+		margin-top: var(--space-l);
+	}
+}
+

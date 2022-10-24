@@ -1,0 +1,35 @@
+{
+    "checkout_hero_url": null,
+    "currency_code": "USD",
+    "description": "0",
+    "giftcard_list": [
+        {
+            "checkout_value_id": "d4ec7fb1-f214-4f76-9163-92a6cc6ef3a1",
+            "cost_in_cents": 980,
+            "display_bonus": 2.04,
+            "display_monetary_bonus": null,
+            "value_in_cents": 1000
+        },
+        {
+            "checkout_value_id": "51df3cec-4277-4327-acd9-8c1e09c6c45e",
+            "cost_in_cents": 2450,
+            "display_bonus": 2.04,
+            "display_monetary_bonus": null,
+            "value_in_cents": 2500
+        },
+        {
+            "checkout_value_id": "7257dd8d-fdf8-45de-abdc-7d565dd0d7e1",
+            "cost_in_cents": 4900,
+            "display_bonus": 2.04,
+            "display_monetary_bonus": null,
+            "value_in_cents": 5000
+        }
+    ],
+    "image_url": "https://d13080yemosbe2.cloudfront.net/Images/GiftCardFaceplates/External/EBOOKUL_fp01.png",
+    "is_enabled": true,
+    "logomark_url": null,
+    "name": "Unlimited eBooks",
+    "stores": [],
+    "support_creative_list": [],
+    "tag": null
+}

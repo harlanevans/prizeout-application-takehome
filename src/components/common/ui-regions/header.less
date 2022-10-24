@@ -1,0 +1,29 @@
+@import '../../../utils/styles/mixins.less';
+@import '../../../utils/styles/media-queries.less';
+
+.header {
+	.flexbox();
+	background-color: var(--color-white);
+	height: 3rem;
+	padding: 0 var(--space-inner);
+	border-bottom: var(--border-primary);
+	
+	&__logo {
+		.flexbox();
+		justify-self: stretch;
+		align-self: stretch;
+
+		background-size: auto 50%;
+		background-position: center center;
+		background-repeat: no-repeat;
+
+		background-image: url('https://assets.prizeout.com/branding/Prizeout-Logo-Blue.svg');
+
+		min-height: 40px;
+		min-width: 160px;
+		
+		@media @mobile-portrait-down {
+			background-image: url('https://assets.prizeout.com/branding/P-Logo-Blue.svg');
+		}
+	}
+}

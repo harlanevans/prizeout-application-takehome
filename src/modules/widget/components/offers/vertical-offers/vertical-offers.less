@@ -1,0 +1,21 @@
+@import '../../../../../utils/styles/media-queries.less';
+
+.vertical-offers {
+	> h2 {
+		margin-bottom: var(--space-l);
+	}
+
+	&__gift-cards {
+		display: grid;
+		gap: 1.25rem;
+		grid-template-columns: repeat(auto-fill, minmax(11.25rem, 1fr));
+
+		@media @mobile-portrait-down {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		@media only screen and (max-width: 300px) {
+			grid-template-columns: minmax(0, 1fr);
+		}
+	}
+}

@@ -1,0 +1,13 @@
+.flexbox(@display: flex; @flexFlow: row wrap; @alignItems: center; @justifyContent: center;) {
+	display: @display;
+	flex-flow: @flexFlow;
+	align-items: @alignItems;
+	justify-content: @justifyContent;
+}
+
+.transition(@delay: 0s; @duration: .3s; @prop: all; @timing: ease;) {
+	transition-delay: @delay;
+	transition-duration: @duration;
+	transition-property: @prop;
+	transition-timing-function: @timing;
+}

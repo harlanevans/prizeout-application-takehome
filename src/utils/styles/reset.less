@@ -1,0 +1,111 @@
+/*
+	Extends resets/defaults from normalize.css
+*/
+
+*, 
+*::before, 
+*::after {
+	box-sizing: border-box;
+} 
+
+html {
+	font-size: 16px;
+}
+
+body {
+	scroll-behavior: smooth;
+	text-rendering: optimizeSpeed;
+	background-color: var(--color-white);
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd,
+img {
+	margin: 0;
+}
+
+code,
+pre,
+kbd,
+samp {
+	font-family: var(--font-family-code);
+}
+
+small,
+img {
+	display: inline-block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	line-height: var(--line-height-heading);
+}
+
+h1 {
+	font-size: var(--font-size-xxl);
+}
+
+h2 {
+	font-size: var(--font-size-xl);
+}
+
+h3 {
+	font-size: var(--font-size-l);
+}
+
+h4 {
+	font-size: var(--font-size-m);
+}
+
+h5,
+p {
+	font-size: var(--font-size-s);
+}
+
+small {
+	font-size: var(--font-size-xs);
+}
+
+a {
+	color: var(--color-primary);
+	text-decoration: none;
+	font-weight: 700;
+	cursor: pointer;
+	
+	&:hover,
+	&:focus {
+		text-decoration: underline;
+	}
+	
+	&:focus {
+		outline: 1px solid var(--color-blue-300);
+	}
+}
+
+// Remove all animations and transitions for people that prefer not to see them
+@media (prefers-reduced-motion: reduce) {
+	* {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}

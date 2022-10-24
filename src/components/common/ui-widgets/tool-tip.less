@@ -1,0 +1,32 @@
+.tool-tip {
+    display: inline-block;
+    position: relative;
+
+    &.showing {
+        article {
+            display: block;
+        }
+    }
+
+    article {
+        background-color: #808997;
+        border-radius: .75rem;
+        color: #fff;
+        display: none;
+        font-size: .75rem;
+        font-weight: normal;
+        max-width: 18rem;
+        min-width: 12rem;
+        padding: .25rem .5rem;
+        position: absolute;
+        top: calc(100% + 1rem);
+        left: -22%;
+        line-height: 1rem;
+    }
+
+    header {
+        cursor: pointer;
+        display: inline-block;
+    }
+}
+

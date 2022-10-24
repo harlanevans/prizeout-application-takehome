@@ -1,0 +1,103 @@
+/*
+	Basic grid system with modifier classes for easy customization when creating various layouts
+*/
+
+.grid {
+	display: grid;
+	gap: 1rem;
+	
+	
+	/*
+		Modifiers on the "grid" parent class which control the overall layout of the child items
+	*/
+	
+	&--full-height {
+		height: 100%;
+	}
+	
+	&--two-columns {
+		grid-template-columns: repeat(2, auto);
+	}
+
+	
+	
+	/*
+		One column layout with top and bottom sections
+		Must have content in 2 divs (one will align to the top and the other will align to the bottom)
+	*/
+	
+	// Split 1 column into 2 equal halves (top/bottom)
+	&--top-bottom { 
+		height: 100%;
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(2, 1fr);
+		align-content: space-between;
+	}
+	
+	// Allow top to span the full height available and overflow will scroll within this top panel but keep the bottom section attached to bottom and can auto grow depending on content
+	&--stretch-top { 
+		grid-template-rows: 1fr auto;
+		
+		> .grid__item {
+			overflow-y: auto;
+		}
+	}
+	
+	// Stretch the bottom section instead
+	&--stretch-bottom {
+		grid-template-rows: auto 1fr;
+	}
+	
+	
+	
+	/*
+		Vertically align all items - on the parent class
+	*/
+	
+	&--y-center {
+		align-items: center;
+	}
+	
+	&--y-start {
+		align-items: start;
+	}
+	
+	&--y-end {
+		align-items: end;
+	}
+	
+	
+	
+	/*
+		Grid items - children
+	*/
+	
+	&__item {
+		
+		/*
+			Modifier classes which can be applied to the child itself
+		*/
+		
+		
+		// Horizontal alignment
+		
+		&--x-start {
+			justify-self: start; // Align item to the left
+		}
+		
+		&--x-end {
+			justify-self: end; // Align item to the right
+		}
+		
+		
+		// Vertical alignment
+		
+		&--y-start {
+			align-self: start; // Align item to the top
+		}
+		
+		&--y-end {
+			align-self: end; // Align item to the bottom
+		}
+	}
+}

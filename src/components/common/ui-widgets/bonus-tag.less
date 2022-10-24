@@ -1,0 +1,73 @@
+@import '../../../utils/styles/mixins.less';
+
+.bonus-tag {
+    .flexbox(@justifyContent: space-between);
+
+    &.bonus-tag--small {
+        .bonus-tag__container {
+            height: 1.25rem;
+
+            &::before {
+                border-right-width: .625rem;
+                border-left-width: 0;
+                border-top-width: .625rem;
+                border-bottom-width: .625rem;
+                left: unset;
+                border-right-color: transparent;
+                right: -.625rem;
+            }
+        }
+    }
+
+    &__container {
+        .flexbox(@justifyContent: space-between);
+        background-color: var(--color-blue-700);
+        color: var(--color-white);
+        padding: 0 0.5rem;
+        height: 1.875rem;
+        border-radius: 0;
+        box-sizing: border-box;
+        position: relative;
+    
+    
+        &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            top: 0;
+            border: .625rem solid var(--color-blue-700);
+            border-right-width: .625rem;
+            border-left-width: 0;
+            border-top-width: 0.9375rem;
+            border-bottom-width: 0.9375rem;
+            left: unset;
+            border-right-color: transparent;
+            right: -.625rem;
+        }
+    
+        > div {
+            .flexbox(@justifyContent: flex-start);
+    
+            & > i {
+                width: 1.125rem;
+                margin-right: .675rem;
+            }
+    
+            & > small {
+                line-height: unset;
+            }
+        }
+    
+    }
+
+    &.monetary {
+        .bonus-tag__container {
+            background-color: var(--color-green-400);
+
+            &::before {
+                border-color: var(--color-green-400);
+                border-right-color: transparent;
+            }
+        }
+    }
+}

@@ -1,0 +1,19 @@
+@import '../../../utils/styles/mixins.less';
+
+.gift-card {
+	&__row {
+		.flexbox(@justifyContent: space-between);
+		
+		margin: var(--space-xs) 0 var(--space);
+	}
+	
+	&__name {
+		font-size: var(--font-size-xs);
+		line-height: 1.2;
+		display: -webkit-box;
+		overflow: hidden;
+		-webkit-line-clamp: 1;
+		-webkit-box-orient: vertical;
+		overflow-wrap: break-word;
+	}
+}

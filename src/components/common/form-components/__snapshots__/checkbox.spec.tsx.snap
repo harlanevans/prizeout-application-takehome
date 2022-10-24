@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Checkbox Component Component matches snapshot 1`] = `
+<DocumentFragment>
+  <label
+    class="checkbox"
+    data-testid="checkbox-label"
+    for="checkbox-test-id"
+  >
+    <input
+      aria-required="true"
+      class="checkbox__input"
+      data-testid="checkbox-input"
+      id="checkbox-test-id"
+      title="Checkbox content"
+      type="checkbox"
+    />
+    <span
+      aria-checked="false"
+      aria-labelledby="checkbox-test-id"
+      class="checkbox__control"
+      data-testid="checkbox-input-control"
+    >
+      <small
+        data-testid="checkbox-description"
+      >
+        Checkbox content
+      </small>
+    </span>
+  </label>
+</DocumentFragment>
+`;

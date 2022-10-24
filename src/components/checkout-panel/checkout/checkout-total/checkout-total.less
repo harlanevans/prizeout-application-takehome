@@ -1,0 +1,19 @@
+@import '../../../../utils/styles/mixins.less';
+
+
+.checkout-total {
+	padding: var(--space-s);
+  border: solid 1px var(--color-grey-200);
+  border-radius: var(--border-radius-tertiary);
+
+	&__rows {
+    .flexbox(@justifyContent: space-between; @flexFlow: row nowrap;);
+    width: 100%;
+  }
+
+	&__rowsBonus {
+    color: var(--color-blue-300);
+  }
+}
+
+

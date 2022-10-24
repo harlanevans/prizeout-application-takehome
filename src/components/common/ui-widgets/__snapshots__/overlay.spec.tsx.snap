@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Overlay Component Component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="overlay z-index-overlay-sidebar"
+    data-testid="overlay"
+  />
+</DocumentFragment>
+`;

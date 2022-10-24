@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Logo Component Component matches snapshot 1`] = `
+<DocumentFragment>
+  <img
+    alt="Prizeout logo"
+    class="logo"
+    data-testid="logo"
+    src="https://assets.prizeout.com/Prizeout-logo.svg"
+  />
+</DocumentFragment>
+`;

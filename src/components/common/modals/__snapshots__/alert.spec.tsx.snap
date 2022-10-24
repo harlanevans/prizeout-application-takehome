@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Alert Component Component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    aria-atomic="true"
+    class="alert alert--error"
+    data-testid="alert-icon"
+    role="alert"
+  >
+    <span
+      class="alert__icon"
+    />
+    <p
+      class="alert__message"
+    >
+      Alert message
+    </p>
+  </div>
+</DocumentFragment>
+`;

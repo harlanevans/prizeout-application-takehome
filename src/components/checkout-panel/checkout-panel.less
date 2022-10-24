@@ -1,0 +1,62 @@
+@import '../../utils/styles/mixins.less';
+@import '../../utils/styles/media-queries.less';
+
+.checkout-panel {
+	--checkout-box-shadow: -1px 1px 10px rgba(0, 0, 0, 0.1);
+	--checkout-border-radius: var(--border-radius-secondary) 0 0 var(--border-radius-secondary);
+	
+	background-color: var(--color-white);
+	overflow-y: auto;
+	border-radius: var(--checkout-border-radius);
+	box-shadow: var(--checkout-box-shadow);
+	
+	&--side {
+		width: var(--panel-width);
+		height: 100%;
+	}
+	
+	&--collapsed {
+		--checkout-box-shadow: 0 -10px 24px rgba(2, 20, 49, .15);
+		--checkout-border-radius: var(--border-radius-secondary) var(--border-radius-secondary) 0 0;
+		
+		.flexbox();
+		.transition(@prop: transform; @duration: .4s;);
+		
+		position: absolute;
+		bottom: 0;
+		left: unset;
+		right: 0;
+		width: 100%;
+		height: 95%;
+		max-height: unset;
+		overflow-y: auto;
+		visibility: visible;
+		transform: translateY(100%);
+		
+		.checkout-panel__view {
+			width: var(--panel-width);
+		}
+	}
+	
+	&--entering {
+		transform: translateY(0);
+	}
+	
+	&--exiting {
+		transform: translateY(100%);
+	}
+	
+	&__view {
+		display: none;
+		height: 100%;
+		overflow: auto;
+
+		&--active {
+			display: block;
+		}
+		
+		> section {
+			height: 100%;
+		}
+	}
+}

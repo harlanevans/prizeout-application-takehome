@@ -1,0 +1,56 @@
+.collapsible-panel {
+    border: 2px solid #E5E7EA;
+    border-radius: .5rem;
+    position: relative;
+    width: 100%;
+
+    &.open {
+        article {
+            display: block;
+        }
+
+        header {
+            &::after {
+                content: '-' !important;    
+            }
+
+            border-bottom: 1px solid #E5E7EA;
+            border-radius: .5rem;
+        }
+    }
+
+    article,
+    header {
+        padding: .5rem;
+    }
+
+    article {
+        color: #808997;
+        display: none;
+        font-size: .6rem;
+        p {
+            color: #808997;
+            font-size: .6rem;
+        }
+
+        a {
+            color: #00A7FF;
+            text-decoration: none;
+        }
+    }
+
+    header {
+        &::after {
+            content: '+';
+            font-size: 1rem;
+            line-height: 30px;
+            position: absolute;
+            right: 1rem;
+            top: 0;
+        }
+
+        color: #808997;
+        cursor: pointer;
+    }
+}
+
